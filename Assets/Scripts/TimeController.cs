@@ -31,10 +31,9 @@ public class TimeController : MonoBehaviour
             else
             {
                 string text = webRequest.downloadHandler.text;
-                TimeFormat success = JsonConvert.DeserializeObject<TimeFormat>(text);
-                //DateTime moscowTime = DateTime.Parse(webRequest.downloadHandler.text);
+                WorldTimeAPIFormat time = JsonConvert.DeserializeObject<WorldTimeAPIFormat>(text);
 
-                RecieveMoscowTime(success.utc_datetime.ToString());
+                RecieveMoscowTime(time.datetime);
             }
 
         }
